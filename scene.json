@@ -1,0 +1,84 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "4055213E-FE45-490A-92E4-AD3DBF93ECD7",
+			"type": "IcosahedronGeometry",
+			"radius": 1,
+			"detail": 7
+		}],
+	"materials": [
+		{
+			"uuid": "93AB5867-3305-460E-95AE-C343B9037991",
+			"type": "MeshPhongMaterial",
+			"color": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 10,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		}],
+	"object": {
+		"uuid": "31517222-A9A7-4EAF-B5F6-60751C0BABA3",
+		"type": "Scene",
+		"name": "Scene",
+		"layers": 1,
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "BCBF3C0B-DE1E-4186-BAEC-E2F033D1A7EC",
+				"type": "Mesh",
+				"name": "egg",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+				"geometry": "4055213E-FE45-490A-92E4-AD3DBF93ECD7",
+				"material": "93AB5867-3305-460E-95AE-C343B9037991"
+			},
+			{
+				"uuid": "1C3B7E14-D189-482A-9FB9-28AE56A8CEAF",
+				"type": "HemisphereLight",
+				"name": "HemisphereLight",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,10,0,1],
+				"color": "#cceeff",
+				"intensity": 0.5,
+				"groundColor": 2432531
+			},
+			{
+				"uuid": "C97B5B36-EA8E-4FD2-A82B-2910C8A5F526",
+				"type": "DirectionalLight",
+				"name": "DirectionalLight",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-1.449806,1.351175,7.059729,1],
+				"color": 16777215,
+				"intensity": 0.6,
+				"shadow": {
+					"camera": {
+						"uuid": "73A3A278-35BC-4960-AD62-430E4413F8CC",
+						"type": "OrthographicCamera",
+						"layers": 1,
+						"zoom": 1,
+						"left": -5,
+						"right": 5,
+						"top": 5,
+						"bottom": -5,
+						"near": 0.5,
+						"far": 500
+					}
+				}
+			}]
+	}
+}

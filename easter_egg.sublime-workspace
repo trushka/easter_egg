@@ -1,0 +1,1011 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"co",
+				"count"
+			],
+			[
+				"ve",
+				"Vector3"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"pr",
+				"prototype"
+			],
+			[
+				"e",
+				"egg"
+			],
+			[
+				"ca",
+				"camera"
+			],
+			[
+				"c",
+				"camera"
+			],
+			[
+				"re",
+				"renderer"
+			],
+			[
+				"fo",
+				"font-family\tproperty"
+			],
+			[
+				"st",
+				"style\tTag"
+			],
+			[
+				"me",
+				"meta\tTag"
+			],
+			[
+				"mi",
+				"mix-blend-mode\tproperty"
+			],
+			[
+				"tr",
+				"transparent"
+			],
+			[
+				"sce",
+				"sceneBg"
+			],
+			[
+				"ren",
+				"rendererBg"
+			],
+			[
+				"con",
+				"container"
+			],
+			[
+				"tra",
+				"translateX()\ttransform"
+			],
+			[
+				"is",
+				"isNarrow"
+			],
+			[
+				"di",
+				"display\tproperty"
+			],
+			[
+				"si",
+				"sizeI"
+			],
+			[
+				"de",
+				"deviation"
+			],
+			[
+				"br",
+				"break"
+			],
+			[
+				"rn",
+				"rnd3"
+			],
+			[
+				"po",
+				"pos"
+			],
+			[
+				"ne",
+				"near"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"fig",
+				"figure"
+			],
+			[
+				"rend",
+				"renderer"
+			],
+			[
+				"dB",
+				"dBy"
+			],
+			[
+				"ge",
+				"geometry"
+			],
+			[
+				"ro",
+				"rotateY"
+			],
+			[
+				"EL",
+				"else"
+			],
+			[
+				"fi",
+				"figSize"
+			],
+			[
+				"mai",
+				"main"
+			],
+			[
+				"q",
+				"q0"
+			],
+			[
+				"s",
+				"slerp"
+			],
+			[
+				"scr",
+				"scrSize"
+			],
+			[
+				"dis",
+				"distanceTo"
+			],
+			[
+				"scen",
+				"scene"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"colo",
+				"colors"
+			],
+			[
+				"sc",
+				"Scene"
+			],
+			[
+				"qu",
+				"quaternion"
+			],
+			[
+				"mo",
+				"mouse"
+			],
+			[
+				"dir",
+				"dir0"
+			],
+			[
+				"ray",
+				"raycaster"
+			],
+			[
+				"delt",
+				"deltaPos"
+			],
+			[
+				"pos",
+				"pos0"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"cu",
+				"cube"
+			],
+			[
+				"ini",
+				"initMain"
+			],
+			[
+				"mu",
+				"multiplyScalar"
+			],
+			[
+				"vec",
+				"vec3"
+			],
+			[
+				"set",
+				"setPos"
+			],
+			[
+				"n",
+				"new"
+			],
+			[
+				"g",
+				"Group"
+			],
+			[
+				"lo",
+				"localToWorld"
+			],
+			[
+				"fog",
+				"fogColor"
+			],
+			[
+				"dq",
+				"dq1"
+			],
+			[
+				"to",
+				"touchend"
+			],
+			[
+				"touc",
+				"touched"
+			],
+			[
+				"sh",
+				"castShadow"
+			],
+			[
+				"no",
+				"normalize"
+			],
+			[
+				"li",
+				"lightD2"
+			],
+			[
+				"bu",
+				"bumpMap"
+			],
+			[
+				"bev",
+				"bevel"
+			],
+			[
+				"mat",
+				"Math"
+			],
+			[
+				"se",
+				"setPos"
+			],
+			[
+				"pro",
+				"project"
+			],
+			[
+				"p",
+				"particles"
+			],
+			[
+				"th",
+				"THREE"
+			],
+			[
+				"Cu",
+				"CuColor"
+			],
+			[
+				"b",
+				"bCount"
+			],
+			[
+				"edit",
+				"editor"
+			],
+			[
+				"get",
+				"getBoundingClientRect"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"pre",
+				"preview"
+			],
+			[
+				"modu",
+				"modules"
+			],
+			[
+				"mou",
+				"mouseenter"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"too",
+				"tooSmallH"
+			],
+			[
+				"ch",
+				"checkActive"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"not",
+				"notSelected"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"max",
+				"maxSpace"
+			],
+			[
+				"mins",
+				"minSpace"
+			],
+			[
+				"sp",
+				"space"
+			],
+			[
+				"scale",
+				"scaleX()\ttransform"
+			],
+			[
+				"appe",
+				"appendTo"
+			],
+			[
+				"border-s",
+				"border-spacing\tproperty"
+			],
+			[
+				"bl",
+				"blob"
+			],
+			[
+				"im",
+				"img0"
+			],
+			[
+				"can",
+				"canvas"
+			],
+			[
+				"pa",
+				"parentNode"
+			],
+			[
+				"bor",
+				"border-image-width\tproperty"
+			],
+			[
+				"wa",
+				"wallTab"
+			],
+			[
+				"inter",
+				"interior"
+			],
+			[
+				"mar",
+				"margin\tproperty"
+			],
+			[
+				"bo",
+				"box0"
+			],
+			[
+				"wal",
+				"wallSizeInp"
+			],
+			[
+				"i",
+				"important"
+			],
+			[
+				"ta",
+				"target"
+			],
+			[
+				"fr",
+				"frame"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"M",
+				"Math"
+			],
+			[
+				"hi",
+				"hide"
+			],
+			[
+				"cl",
+				"closest"
+			],
+			[
+				"ap",
+				"append"
+			],
+			[
+				"canv",
+				"canv_cel"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"wall",
+				"wallSizeInp"
+			],
+			[
+				"rem",
+				"removeClass"
+			],
+			[
+				"ad",
+				"addClass"
+			],
+			[
+				"inp",
+				"input"
+			],
+			[
+				"min",
+				"setMinMax"
+			],
+			[
+				"dp",
+				"dpcm0"
+			],
+			[
+				"res",
+				"resize"
+			],
+			[
+				"resiz",
+				"resizeCanvas"
+			],
+			[
+				"of",
+				"offsetWidth-"
+			],
+			[
+				"mod",
+				"modular"
+			],
+			[
+				"ma",
+				"mainContainer"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"h",
+				"h2w"
+			],
+			[
+				"L",
+				"Landscape"
+			],
+			[
+				"S",
+				"Square"
+			],
+			[
+				"t",
+				"this"
+			],
+			[
+				"la",
+				"Landscape"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 748,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 1158,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/work/three_js/build0/three.module.js",
+			"settings":
+			{
+				"buffer_size": 1192061,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/threeCustom.js",
+			"settings":
+			{
+				"buffer_size": 6369,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/work/tube/js/tube.js",
+			"settings":
+			{
+				"buffer_size": 12516,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scene.json",
+			"settings":
+			{
+				"buffer_size": 1956,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: html"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 158.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/work/easter_egg",
+		"/D/work/easter_egg/js"
+	],
+	"file_history":
+	[
+		"/D/work/tube/js/CSS3DRenderer.js",
+		"/D/work/tube/js/tube.js",
+		"/D/work/tube/index.html",
+		"/D/work/three_js/src/extras/PMREMGenerator.js",
+		"/D/work/liquid-drop/MetaBalls.js",
+		"/D/work/liquid-drop/index.html",
+		"/D/work/viarback/resources/views/partials/tab2.blade.php",
+		"/D/work/viarback/resources/views/partials/canvas/generator.blade.php",
+		"/d/work/viarback/resources/views/partials/module_pics/generator.blade.php",
+		"/D/work/viarback/resources/views/canvas.blade.php",
+		"/D/work/viarback/public/js/custom.js",
+		"/D/work/modular-pictures/js/modular-generator.js",
+		"/D/work/modular-pictures/collage-constructor.html",
+		"/D/work/modular-pictures/js/PhotoEditor.js",
+		"/D/work/modular-pictures/css/PhotoEditor.css",
+		"/D/work/fotostar/interior.js",
+		"/D/work/modular-pictures/modular-pictures.html",
+		"/D/work/viarback/public/css/modular-pictures.css",
+		"/D/work/modular-pictures/js/modular-pictures.js",
+		"/D/work/viarback/public/js/modular-generator.js",
+		"/d/work/viarback/resources/views/partials/canvas/generator.blade.php",
+		"/d/work/viarback/resources/views/partials/family/generator.blade.php",
+		"/d/work/viarback/resources/views/partials/gallery_item/header.blade.php",
+		"/D/work/modular-pictures/css/modular-pictures.css",
+		"/D/work/modular-pictures/split_v.svg",
+		"/D/work/modular-pictures/js/templates.js",
+		"/D/work/modular-pictures/js/canvas.min.js",
+		"/D/work/lottery-cylinders/index.html"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 105.777777778,
+		"where_history":
+		[
+			"d:\\work\\viarback\\resources\\views\\",
+			"D:\\work\\modular-pictures\\js"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"thi",
+			"Icos",
+			"Polyhe",
+			"Polyg",
+			"Face",
+			"Geom",
+			"setsi",
+			"delta",
+			"figSise",
+			"bTrans",
+			"_m1",
+			"remove",
+			"_projScreenMatrix",
+			"_frustum",
+			"projecto",
+			"frustum",
+			"\\.\\w+\\.tab2_form",
+			"\\.\\w+\\.tab2'",
+			"\\.\\w+\\.tab2",
+			"\\.tab2",
+			"\\.\\w\\.tab2",
+			"\\.\\w\\.tab2'",
+			".tab2'",
+			".tab2",
+			"tab2",
+			"tab2.blade",
+			"tab2.blade.php",
+			"canvas.min.js",
+			"range",
+			"tooSmall",
+			"notSupport",
+			"DragAndDrop",
+			"input",
+			"--size",
+			"user-select",
+			"h2w.dpc",
+			"h2w",
+			"fullSizeM",
+			"fullSizeMin",
+			"changeSm",
+			"vInp",
+			"jcf",
+			"range",
+			"rang",
+			"accordion",
+			"accordion-title",
+			"<div\"",
+			" class=\"miracle-editor__template-item\"",
+			"url("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"delta2",
+			"figSize",
+			"tr",
+			".tab2'",
+			"modular",
+			"modular.m",
+			"modular.min",
+			"wInp",
+			"<div",
+			"",
+			"url(https://1x-bet-ua.com"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 748,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								458,
+								467
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								658,
+								658
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/work/three_js/build0/three.module.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1192061,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								698294,
+								698313
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 503849.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/threeCustom.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								860,
+								884
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 504.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/work/tube/js/tube.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								202,
+								1077
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "scene.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 41.7777777778
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 108.0
+	},
+	"pinned_build_system": "",
+	"project": "easter_egg.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\work\\tube\\tube.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 192.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
