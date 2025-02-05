@@ -16,6 +16,7 @@
 			height: 100%;
 			top: 0;
 			left: 0;
+			touch-action: none;
 		}
 		.workspace canvas{
 			position: absolute;
@@ -45,7 +46,7 @@
 	</div>
 	<script type="module">
 		import * as _3d from './js/main.js';
-		setTimeout(()=>Object.assign(window,_3d), 300) //для отладки, на продакшене можно просто <script type="module" src="./js/tube.js">
+		setTimeout(()=>Object.assign(window,_3d), 300) //для отладки
 	</script>
 </body>
 </html>

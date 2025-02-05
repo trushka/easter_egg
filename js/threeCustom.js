@@ -1,7 +1,9 @@
 //import {} from './three.min.js';
 Object.assign(window.Math, THREE.Math);
 
-export const vec3=function(x,y,z) {return new THREE.Vector3(x,y,z)}, PI=Math.PI;
+export const PI=Math.PI,
+	 vec2 = (... args) => new THREE.Vector2(...args),
+	 vec3 = (... args) => new THREE.Vector3(...args);
 
 THREE.Vector3.prototype.rotate=function(x,y,z,t){
 	return this.applyEuler(new THREE.Euler(x,y,z,t))
@@ -59,9 +61,8 @@ THREE.BufferGeometry.prototype.computeVertexNormalsFine = function () {
 			var indices = index.array;
 
 			var vA, vB, vC,  a, b, c;
-			var pA = new vec3(), pB = new vec3(), pC = new vec3();
-			var cb = new vec3(), ab = new vec3(), ac = new vec3();
-
+			var pA = vec3(), pB = vec3(), pC = vec3();
+			var cb = vec3(), ab = vec3(), ac = vec3();
 			indices.forEach (function( el, i ) {
 				if (i%3) return;
 
