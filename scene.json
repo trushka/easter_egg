@@ -17,8 +17,8 @@
 			"type": "MeshPhongMaterial",
 			"color": 16777215,
 			"emissive": 0,
-			"specular": 1118481,
-			"shininess": 10,
+			"specular": 3158064,
+			"shininess": 9,
 			"depthFunc": 3,
 			"depthTest": true,
 			"depthWrite": true,
@@ -53,18 +53,18 @@
 				"name": "HemisphereLight",
 				"layers": 1,
 				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,10,0,1],
-				"color": "#cceeff",
-				"intensity": 0.5,
-				"groundColor": 2432531
+				"color": "#f0faff",
+				"intensity": 0.65,
+				"groundColor": 1840909
 			},
 			{
 				"uuid": "C97B5B36-EA8E-4FD2-A82B-2910C8A5F526",
 				"type": "DirectionalLight",
 				"name": "DirectionalLight",
 				"layers": 1,
-				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-1.449806,1.351175,7.059729,1],
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-1.449806,2.1,7.059729,1],
 				"color": 16777215,
-				"intensity": 0.6,
+				"intensity": 1.93,
 				"shadow": {
 					"camera": {
 						"uuid": "73A3A278-35BC-4960-AD62-430E4413F8CC",

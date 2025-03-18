@@ -44,9 +44,17 @@
 			<label>wireframe <input type="checkbox" name="wireframe"></label>
 		</form>
 	</div>
+	<script type="importmap">
+	{
+		"imports": {
+		"three": "https://unpkg.com/three@0.174/build/three.module.js",
+		"three/addons/": "https://unpkg.com/three@0.174/examples/jsm/addons/"
+		}
+	}
+	</script>
 	<script type="module">
 		import * as _3d from './js/main.js';
-		setTimeout(()=>Object.assign(window,_3d), 300) //для отладки
+		setTimeout(()=>Object.assign(window,_3d), 500) //для отладки
 	</script>
 </body>
 </html>

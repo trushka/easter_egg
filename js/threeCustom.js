@@ -1,5 +1,5 @@
-//import {} from './three.min.js';
-Object.assign(window.Math, THREE.Math);
+import * as THREE from 'three';
+Object.assign(window.Math, THREE.MathUtils);
 
 export const PI=Math.PI,
 	 vec2 = (... args) => new THREE.Vector2(...args),

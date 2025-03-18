@@ -1,10 +1,10 @@
-import './three.min.js';
+import * as THREE from 'three';
 import {vec3, vec2, PI} from './threeCustom.js';
 
-export {vec3, vec2, PI};
+export {vec3, vec2, PI, THREE};
 
 export let scene, geometry, material, egg;
-export const 
+export const
 	container=document.querySelector('.workspace'),
 	canvas = container.querySelector('canvas'),
 	cashed={dpr: 1},
@@ -12,6 +12,7 @@ export const
 	renderer = new THREE.WebGLRenderer( {alpha:true, antialias: true, canvas:canvas} ),
 	camera=new THREE.PerspectiveCamera( 40, 1, .1, 100 );
 
+//renderer.outputColorSpace='srgb-linear';
 camera.position.set(0,2,6);
 camera.lookAt(0,0,0);
 
@@ -39,12 +40,20 @@ new THREE.ObjectLoader().load('scene.json', sc=>{
 
 		sh.fragmentShader = 'varying vec2 vXz;\n' + sh.fragmentShader
 		.replace('#include <map_fragment>', 'float UVx = atan( vXz.x, vXz.y ) / PI2;\n' +
-		 THREE.ShaderChunk.map_fragment.replace('vUv', 'vec2(fwidth(UVx)>.5 ? fract(UVx) : UVx, vUv.y)')
+		THREE.ShaderChunk.map_fragment.replace('vMapUv', 'vec2(fwidth(UVx)>.5 ? fract(UVx) : UVx, vMapUv.y)')
+		)
+		.replace('#include <lights_pars_begin>',
+		//THREE.ShaderChunk.lights_pars_begin.replace(/(irradiance)(?!.+?irradiance)/s, '$1*$1')
+		THREE.ShaderChunk.lights_pars_begin.replace('0.5 * dotNL + 0.5', 'smoothstep(-1., 1., dotNL)')
+		)
+		.replace('#include <lights_phong_pars_fragment>',
+		THREE.ShaderChunk.lights_phong_pars_fragment.replace('dotNL *', '(exp(dotNL*1.3)-1.)/2. *')
 		);
 	}
 	Object.assign(material.map = new THREE.TextureLoader().load('./uv.jpg'), {
 		wrapS: THREE.RepeatWrapping,
-		anisotropy: renderer.capabilities.getMaxAnisotropy()
+		anisotropy: renderer.capabilities.getMaxAnisotropy(),
+		colorSpace: 'srgb'
 	});
 })
 export const controls=document.querySelector('.controls');
@@ -88,13 +97,13 @@ canvas.addEventListener('pointerdown', e=>{
 	canvas.setPointerCapture(e.pointerId)
 });
 canvas.addEventListener('pointermove', e=>{
-	if (!e.buttons) return;
+	if (!canvas.hasPointerCapture(e.pointerId)) return;
 	const xy = getXY(e);
 	const dPos = pos.copy(e).sub(lastPos).multiplyScalar(.01);
 	lastPos.copy(e);
 	egg.rotation.y += dPos.x;
 	egg.rotation.x += dPos.y;
-	egg.rotation.x = Math.clamp(egg.rotation.x, -PI/2, PI/2);
+	egg.rotation.x = Math.clamp(egg.rotation.x, -2, PI/2);
 });
 window.addEventListener('mousemup', e=>{delete egg.lastPointer});
 
