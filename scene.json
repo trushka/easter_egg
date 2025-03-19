@@ -17,8 +17,8 @@
 			"type": "MeshPhongMaterial",
 			"color": 16777215,
 			"emissive": 0,
-			"specular": 3158064,
-			"shininess": 9,
+			"specular": 4210752,
+			"shininess": 10,
 			"depthFunc": 3,
 			"depthTest": true,
 			"depthWrite": true,
@@ -64,7 +64,7 @@
 				"layers": 1,
 				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-1.449806,2.1,7.059729,1],
 				"color": 16777215,
-				"intensity": 1.93,
+				"intensity": 1.83,
 				"shadow": {
 					"camera": {
 						"uuid": "73A3A278-35BC-4960-AD62-430E4413F8CC",

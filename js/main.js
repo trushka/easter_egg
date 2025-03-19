@@ -80,10 +80,11 @@ controls.wireframe.oninput=function(e){
 renderer.setAnimationLoop(function(){
 	if (!scene) return;
 	if (cashed.dpr!=devicePixelRatio) renderer.setPixelRatio(cashed.dpr=devicePixelRatio);
-	const rect = canvas.getBoundingClientRect()
-	if (cashed.w!=rect.width || cashed.h!=rect.height) {
-		renderer.setSize(cashed.w=rect.width, cashed.h=rect.height, false);
-		camera.aspect=rect.width/rect.height;
+	const {width, height} = canvas.getBoundingClientRect()
+	if (cashed.w!=width || cashed.h!=height) {
+		scale = 4/height;
+		renderer.setSize(cashed.w=width, cashed.h=height, false);
+		camera.aspect=width/height;
 		camera.updateProjectionMatrix();
 	}
 	renderer.render(scene, camera)
@@ -99,7 +100,7 @@ canvas.addEventListener('pointerdown', e=>{
 canvas.addEventListener('pointermove', e=>{
 	if (!canvas.hasPointerCapture(e.pointerId)) return;
 	const xy = getXY(e);
-	const dPos = pos.copy(e).sub(lastPos).multiplyScalar(.01);
+	const dPos = pos.copy(e).sub(lastPos).multiplyScalar(scale);
 	lastPos.copy(e);
 	egg.rotation.y += dPos.x;
 	egg.rotation.x += dPos.y;
