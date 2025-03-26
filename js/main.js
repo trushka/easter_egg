@@ -3,14 +3,16 @@ import {vec3, vec2, PI} from './threeCustom.js';
 
 export {vec3, vec2, PI, THREE};
 
-export let scene, geometry, material, egg;
+export let scene, geometry, material={}, egg;
 export const
+	canvSize = vec2(1024, 1024),
 	container=document.querySelector('.workspace'),
 	canvas = container.querySelector('canvas'),
 	cashed={dpr: 1},
 
 	renderer = new THREE.WebGLRenderer( {alpha:true, antialias: true, canvas:canvas} ),
-	camera=new THREE.PerspectiveCamera( 40, 1, .1, 100 );
+	camera=new THREE.PerspectiveCamera( 40, 1, .1, 100 ),
+	raycaster = new THREE.Raycaster();
 
 //renderer.outputColorSpace='srgb-linear';
 camera.position.set(0,2,6);
@@ -27,8 +29,12 @@ new THREE.ObjectLoader().load('scene.json', sc=>{
 	//console.log(geometry.attributes.uv.array)
 
 	geometry.mergeVertices();
-	egg.pos0=new Float32Array(egg.geometry.attributes.position.array);
-	eggForm({target: controls.bulge});
+	egg.xvz = [];
+	geometry.attributes.position.forEach((pos, i)=>{
+		egg.xvz[i] = pos.clone().setY(0).normalize()
+		.setY(geometry.attributes.uv.getY(i))
+	}, false);
+	eggForm();
 	//egg.lastPointer=vec2();
 	material.onBeforeCompile = sh=>{
 		console.log(sh);
@@ -49,25 +55,64 @@ new THREE.ObjectLoader().load('scene.json', sc=>{
 		.replace('#include <lights_phong_pars_fragment>',
 		THREE.ShaderChunk.lights_phong_pars_fragment.replace('dotNL *', '(exp(dotNL*1.3)-1.)/2. *')
 		);
-	}
-	Object.assign(material.map = new THREE.TextureLoader().load('./uv.jpg'), {
+	};
+	material.map = canvTex;
+})
+export const canv0 = document.createElement('canvas'),
+	ctx=canv0.getContext('2d'),
+	img0 = new THREE.ImageLoader().load('./uv.jpg', img=>{
+		ctx.drawImage(img, 0, 0);
+		canvTex.needsUpdate = true;
+	});
+	[canv0.width, canv0.height]=canvSize.toArray();
+
+	const canvTex = Object.assign(new THREE.CanvasTexture(canv0), {
 		wrapS: THREE.RepeatWrapping,
 		anisotropy: renderer.capabilities.getMaxAnisotropy(),
 		colorSpace: 'srgb'
 	});
-})
+
+
 export const controls=document.querySelector('.controls');
-controls.oninput=eggForm
+controls.oninput=controls.onreset=eggForm
+
+let dl, bulge;
+export const eggoid = new THREE.Curve();
+
+eggoid.getPoint = function(t, targ=vec2()){
+	const angle = t*PI;
+	targ.y = -Math.cos(angle);
+	targ.x = Math.sin(angle) * Math.lerp(1+.45*bulge, 1-(.62-dl*.16)*bulge, t**.9)//arg.y/2+.5);
+	targ.y *= dl;
+	return targ;
+}
+eggoid.getU = function(t){
+	const lengths=this.getLengths(),
+		length = this.getLength(),
+		i = Math.floor(t*=lengths.length);;
+
+	return Math.lerp(lengths[i], lengths[i+1]||length, t-i)/length
+}
 function eggForm(e){
-	if (/elongation|bulge/.test(e.target?.name)) {
-		let dl=controls.elongation.value,
-		 bulge=Math.pow(controls.bulge.value, .8)*Math.pow((dl-1), .4)//*.8;
-		egg.geometry.attributes.position.copyArray(egg.pos0)
-		.forEach((v, i)=>{
-			const y=Math.pow(1-v.y*bulge, .3);
-			v.y*=dl;
-			v.x*=y;
-			v.z*=y;
+	if (!e?.target.name || /elongation|bulge/.test(e.target?.name)) {
+		dl=controls.elongation.value;
+		bulge = egg.bulge = Math.pow(controls.bulge.value, .8)*Math.pow((dl-1), .35);
+
+		const xy = vec2(),
+			{uv, position} = geometry.attributes;
+
+		eggoid.needsUpdate=true;
+		uv.needsUpdate = true;
+
+		position.forEach((pos, i)=>{
+			pos.copy(egg.xvz[i]);
+			eggoid.getPoint(1 - (1-pos.y)**(1+bulge*(dl-1)*.2), xy);
+
+			uv.setXY(i, xy.x, eggoid.getU(pos.y));
+
+			pos.x *= xy.x;
+			pos.y = xy.y
+			pos.z *= xy.x;
 		})
 		egg.geometry.computeVertexNormalsFine()
 	}

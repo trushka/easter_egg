@@ -26,6 +26,7 @@ THREE.BufferAttribute.prototype.forEach=function(fn, change=true){
 		if (change) vec.toArray(array, i*itemSize);
 	}
 	this.needsUpdate=change;
+	return this;
 }
 
 THREE.BufferGeometry.prototype.computeVertexNormalsFine = function () {
