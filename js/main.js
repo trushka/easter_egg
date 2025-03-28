@@ -5,7 +5,10 @@ export {vec3, vec2, PI, THREE};
 
 export let scene, geometry, material={}, egg;
 export const
-	canvSize = vec2(1024, 1024),
+	canvSize = [1024, 1024],
+	[cWidth, cHeight] = canvSize,
+	cRect = [0, 0, ...canvSize],
+	cW2 = cWidth / 2,
 	container=document.querySelector('.workspace'),
 	canvas = container.querySelector('canvas'),
 	cashed={dpr: 1},
@@ -58,20 +61,24 @@ new THREE.ObjectLoader().load('scene.json', sc=>{
 	};
 	material.map = canvTex;
 })
-export const canv0 = document.createElement('canvas'),
-	ctx=canv0.getContext('2d'),
+export const canv0 = createCanvas(...canvSize),
+	canv1 = createCanvas(8, 8),
+	ctx=canv0.getContext('2d', { alpha: false, willReadFrequently: true, desynchronized: true }),
+	ctx1=canv1.getContext('2d'),
 	img0 = new THREE.ImageLoader().load('./uv.jpg', img=>{
 		ctx.drawImage(img, 0, 0);
 		canvTex.needsUpdate = true;
-	});
-	[canv0.width, canv0.height]=canvSize.toArray();
-
-	const canvTex = Object.assign(new THREE.CanvasTexture(canv0), {
+		lastImgData = ctx.getImageData(...cRect)
+	}),
+	canvTex = Object.assign(new THREE.CanvasTexture(canv0), {
 		wrapS: THREE.RepeatWrapping,
 		anisotropy: renderer.capabilities.getMaxAnisotropy(),
 		colorSpace: 'srgb'
 	});
 
+function createCanvas(width, height) {
+	return Object.assign(document.createElement('canvas'), {width, height});
+}
 
 export const controls=document.querySelector('.controls');
 controls.oninput=controls.onreset=eggForm
@@ -135,23 +142,87 @@ renderer.setAnimationLoop(function(){
 	renderer.render(scene, camera)
 })
 
-let lastXY, lastPos = vec2(), pos = vec2(), scale=1;
+let lastXY, lastPos = vec2(), pos = vec2(), scale=1,
+	lastImgData, pImgData, curPath = [];
 canvas.addEventListener('pointerdown', e=>{
-	lastXY=getXY(e);
+	if (egg.lastPointer) return;
+	lastXY = getXY(e);
 	lastPos.copy(e);
 
 	canvas.setPointerCapture(e.pointerId)
+	egg.lastPointer = e.pointerId+'';
+	drawTo(lastXY, true);
 });
 canvas.addEventListener('pointermove', e=>{
-	if (!canvas.hasPointerCapture(e.pointerId)) return;
+	if (egg?.lastPointer != e.pointerId) return;
 	const xy = getXY(e);
+	if (curPath[0]) return drawTo(xy);
 	const dPos = pos.copy(e).sub(lastPos).multiplyScalar(scale);
 	lastPos.copy(e);
 	egg.rotation.y += dPos.x;
 	egg.rotation.x += dPos.y;
 	egg.rotation.x = Math.clamp(egg.rotation.x, -2, PI/2);
 });
-window.addEventListener('mousemup', e=>{delete egg.lastPointer});
+canvas.addEventListener('lostpointercapture', e=>{
+	delete egg.lastPointer;
+	if (curPath[0]) lastImgData = ctx.getImageData(...cRect)
+	curPath = [];
+});
+
+ctx.moveTo(4, 0)
+ctx1.arc(4, 4, 4, -PI, PI);
+ctx1.fillStyle = '#032b'
+ctx1.fill()
+pImgData = ctx1.getImageData(0,0,8,8)
+
+function drawTo(coords, start) {
+	raycaster.setFromCamera(coords, camera);
+	const {point, uv} = raycaster.intersectObject(egg)[0] || {},
+		r=2, ry=r*2/dl,
+		last = curPath.at(-1),
+		points=[], xy=vec3();
+	if (!uv || !lastImgData) return;
+	egg.worldToLocal(point);
+	xy.x = (Math.atan2(point.x, point.z)/PI/2+1) % 1 * cWidth;
+	xy.y = (1 - uv.y) * cHeight;
+	xy.z = r/uv.x;
+	if (last) {
+		if (Math.abs(last.x-xy.x)>cW2) xy.x += xy.x>cW2 ? -cWidth : cWidth;
+
+		const dist = vec2().copy(xy).sub(last);
+		dist.x *= (xy.z+last.z)/2/r;
+		let n = Math.ceil(dist.length() / 2 / r)+1;
+		for (let i=1; i<n; i++){
+			const p1 = last.clone().lerp(xy, i/n)
+			p1.x+=cWidth;
+			p1.x %= cWidth;
+			points.push(p1);
+		}
+
+	} else points.push(xy);
+	curPath.push(...points);
+
+	if (start) {
+		ctx.fillStyle = '#021c';
+		ctx.beginPath();
+	}
+	ctx.clearRect(...cRect)
+	ctx.putImageData(lastImgData, 0, 0);
+	points.forEach(p=>{
+		draw(p, ry)
+		if (p.x<10 || p.x>cWidth-10) {
+			p = p.clone();
+			p.x += p.x<10 ? cWidth : -cWidth;
+			draw(p, ry);
+		}
+	})
+	ctx.fill();
+	canvTex.needsUpdate = true;
+}
+function draw({x,y,z: rx}, ry) {
+	ctx.moveTo(x+rx, y);
+	ctx.ellipse(x, y, rx, ry, 0 ,0 ,PI*2);
+}
 
 function getXY(e) {
 	const rect = canvas.getBoundingClientRect();
