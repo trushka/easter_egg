@@ -1,11 +1,11 @@
 import * as THREE from 'three';
-import {vec3, vec2, PI} from './threeCustom.js';
+import {vec2, vec3, vec4, PI} from './threeCustom.js';
 
 export {vec3, vec2, PI, THREE};
 
 export let scene, geometry, material={}, egg;
 export const
-	canvSize = [1024, 1024],
+	canvSize = [1600, 1600],
 	[cWidth, cHeight] = canvSize,
 	cRect = [0, 0, ...canvSize],
 	cW2 = cWidth / 2,
@@ -66,7 +66,7 @@ export const canv0 = createCanvas(...canvSize),
 	ctx=canv0.getContext('2d', { alpha: false, willReadFrequently: true, desynchronized: true }),
 	ctx1=canv1.getContext('2d'),
 	img0 = new THREE.ImageLoader().load('./uv.jpg', img=>{
-		ctx.drawImage(img, 0, 0);
+		ctx.drawImage(img, ...cRect);
 		canvTex.needsUpdate = true;
 		lastImgData = ctx.getImageData(...cRect)
 	}),
@@ -95,10 +95,11 @@ eggoid.getPoint = function(t, targ=vec2()){
 }
 eggoid.getU = function(t){
 	const lengths=this.getLengths(),
-		length = this.getLength(),
-		i = Math.floor(t*=lengths.length);;
+		total = this.getLength(),
+		{length} = lengths,
+		i = Math.min(Math.floor(t*=length), length - 1);
 
-	return Math.lerp(lengths[i], lengths[i+1]||length, t-i)/length
+	return Math.lerp(lengths[i], lengths[i+1]||total, t-i)/total
 }
 function eggForm(e){
 	if (!e?.target.name || /elongation|bulge/.test(e.target?.name)) {
@@ -150,14 +151,14 @@ canvas.addEventListener('pointerdown', e=>{
 	lastPos.copy(e);
 
 	canvas.setPointerCapture(e.pointerId)
-	egg.lastPointer = e.pointerId+'';
-	drawTo(lastXY, true);
+	if (e.button<2) egg.lastPointer = e.pointerId+'';
+	if (!e.button) drawTo(lastXY, true);
 });
 canvas.addEventListener('pointermove', e=>{
 	if (egg?.lastPointer != e.pointerId) return;
 	const xy = getXY(e);
 	if (curPath[0]) return drawTo(xy);
-	const dPos = pos.copy(e).sub(lastPos).multiplyScalar(scale);
+	const dPos = pos.copy(e).sub(lastPos).multiplyScalar(scale/camera.zoom);
 	lastPos.copy(e);
 	egg.rotation.y += dPos.x;
 	egg.rotation.x += dPos.y;
@@ -168,6 +169,16 @@ canvas.addEventListener('lostpointercapture', e=>{
 	if (curPath[0]) lastImgData = ctx.getImageData(...cRect)
 	curPath = [];
 });
+canvas.addEventListener('wheel', e=>{
+	const fract=e.deltaY/120;
+	if (curPath[0]) {
+		controls.lSize.value *= 1 -fract*.1
+	} else {
+		camera.zoom *= 1-fract*.02;
+		camera.updateProjectionMatrix()
+	}
+	return false;
+})
 
 ctx.moveTo(4, 0)
 ctx1.arc(4, 4, 4, -PI, PI);
@@ -178,7 +189,7 @@ pImgData = ctx1.getImageData(0,0,8,8)
 function drawTo(coords, start) {
 	raycaster.setFromCamera(coords, camera);
 	const {point, uv} = raycaster.intersectObject(egg)[0] || {},
-		r=2, ry=r*2/dl,
+		r=controls.lSize.value, ry=r*2/dl,
 		last = curPath.at(-1),
 		points=[], xy=vec3();
 	if (!uv || !lastImgData) return;
@@ -191,7 +202,7 @@ function drawTo(coords, start) {
 
 		const dist = vec2().copy(xy).sub(last);
 		dist.x *= (xy.z+last.z)/2/r;
-		let n = Math.ceil(dist.length() / 2 / r)+1;
+		let n = Math.ceil(dist.length() / r)+1;
 		for (let i=1; i<n; i++){
 			const p1 = last.clone().lerp(xy, i/n)
 			p1.x+=cWidth;

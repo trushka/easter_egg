@@ -1,9 +1,10 @@
 import * as THREE from 'three';
 Object.assign(window.Math, THREE.MathUtils);
 
-export const PI=Math.PI,
+export const {PI}=Math,
 	 vec2 = (... args) => new THREE.Vector2(...args),
-	 vec3 = (... args) => new THREE.Vector3(...args);
+	 vec3 = (... args) => new THREE.Vector3(...args),
+	 vec4 = (... args) => new THREE.Vector4(...args);
 
 THREE.Vector3.prototype.rotate=function(x,y,z,t){
 	return this.applyEuler(new THREE.Euler(x,y,z,t))
